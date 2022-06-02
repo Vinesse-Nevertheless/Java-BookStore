@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import static org.mockito.ArgumentMatchers.intThat;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -59,6 +61,15 @@ public class ControllerServlet extends HttpServlet {
 				case "/insert":
 					insertBook(request, response);
           break;
+				case "/delete":
+					deleteBook(request, response);
+			break;
+				case "/edit":
+					showEditForm(request, response);
+			break;
+				case "/update":
+					updateBook(request, response);
+			break;
         default:
 				   listBooks(request, response);
            break;
@@ -67,6 +78,45 @@ public class ControllerServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	private void updateBook(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		String idStr = request.getParameter("id");
+		String title = request.getParameter("booktitle");
+		String author = request.getParameter("bookauthor");
+		String priceString = request.getParameter("bookprice");
+
+		Book newBook = 
+				new Book(Integer.parseInt(idStr), title, author, Float.parseFloat(priceString));
+
+		bookDAO.updateBook(newBook);
+		response.sendRedirect("list");
+		
+	}
+
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, ServletException, IOException {
+		String idStr = request.getParameter("id");
+		int id = Integer.parseInt(idStr);
+		
+		Book editedBook = bookDAO.getBook(id);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/BookForm.jsp");
+		
+		request.setAttribute("book", editedBook);
+		
+		dispatcher.forward(request, response);
+		
+	}
+	
+
+	private void deleteBook(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		String id = request.getParameter("id");
+	
+		bookDAO.deleteBook(Integer.parseInt(id));
+		response.sendRedirect("list");
+		
 	}
 
 	private void showBookAdmin(HttpServletRequest request, HttpServletResponse response)
