@@ -1,21 +1,24 @@
-# Java-BookStore
-The Java Web interactive project.  This project adds features to a Book Store app.
+# 🗄️ Java Book Store: Database Admin Module
 
-https://app.pluralsight.com/projects/add-database-admin-features-to-a-java-book-store-web-app
+### 📝 Project Overview
+This project focused on the **Data Access Layer** of a Java Web Application. I implemented administrative features to allow for the management of the bookstore's inventory.
 
-# Add Database Admin Features to a Java Book Store Web App
+### 🛠️ Technical Challenges & Solutions
 
-In this project you’ll follow along with our instructions and add update and delete features to the admin section of an existing Java Web application.
+#### 1. JDBC & Data Persistence
+* **Task:** Implement Update and Delete functionality for the book inventory.
+* **Logic:** Wrote backend methods to map user actions (button clicks/form submits) to SQL execution, ensuring the database state remained synchronized with the UI.
 
-## Setup
-Set up your local environment for projects. We'll walk you through everything you need to know, including how to install and configure your environment to be able to complete all of the tasks.
+#### 2. Conditional UI Rendering
+* **Task:** Create a dynamic "Edit/Add" form.
+* **Logic:** Implemented conditional logic in the View layer to determine whether to render a blank "Add" form or a pre-populated "Update" form based on the presence of an existing Record ID.
 
-## Deleting Books From a Database
-Write code that calls a method to delete a book record from the database when an HTML link is clicked.
+### 🎓 Learning Outcomes (Apprenticeship Context)
+This was a guided project completed during my software development apprenticeship (circa 2022). This project was key in mastering the **CRUD** pattern (Create, Read, Update, Delete) within a Java/MySQL environment.
 
-## Showing an Edit Form
-Write code that conditionally shows either an update form or form to add a new book depending on whether or not there are any books in the database.
+---
+### 🔗 Related Modules
+* **[Database Admin Module](https://github.com/Vinesse-Nevertheless/Java-BookStoreShoppingCart/tree/master):** Explore the persistence layer where the bookstore inventory is managed and stored permanently.
 
-## Updating Books In a Database
-Write code that calls a method to update a book record from the database when an HTML form is submitted.
-
+---
+*Note: This project was completed as part of a Pluralsight Hands-on Lab to master Java Web fundamentals.*
