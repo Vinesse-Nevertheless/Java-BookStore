@@ -16,6 +16,9 @@ This project focused on the **Data Access Layer** of a Java Web Application. I i
 ### 🎓 Learning Outcomes (Apprenticeship Context)
 This was a guided project completed during my software development apprenticeship (circa 2022). This project was key in mastering the **CRUD** pattern (Create, Read, Update, Delete) within a Java/MySQL environment.
 
+
+<img width="835" height="674" alt="admin-dashboard-update-sequence diagram" src="https://github.com/user-attachments/assets/d7cae047-3848-4200-beae-52e9509ede30" />
+
 ---
 ### 🔗 Related Modules
 * **[Database Admin Module](https://github.com/Vinesse-Nevertheless/Java-BookStoreShoppingCart/tree/master):** Explore the persistence layer where the bookstore inventory is managed and stored permanently.
